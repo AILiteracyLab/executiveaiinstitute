@@ -86,7 +86,9 @@ img { max-width: 100%; display: block; }
    (containers, nav, prose, forms), so overriding it here pulls all content to
    10px from the screen edges on phones. */
 @media (max-width: 768px) { :root { --gutter: 10px; } }
-.section { padding: clamp(72px, 10vw, 140px) 0; position: relative; }
+/* padding-block (not the shorthand) so combined `.section.container` keeps the
+   horizontal gutter from .container instead of having it zeroed to 0. */
+.section { padding-block: clamp(72px, 10vw, 140px); position: relative; }
 
 /* Kicker — the BBE uppercase label, emerald */
 .kicker {
