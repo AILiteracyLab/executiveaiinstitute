@@ -257,6 +257,10 @@ img { max-width: 100%; display: block; }
 .prose strong { color: var(--cream); }
 .prose a { text-decoration: underline; text-underline-offset: 3px; }
 .prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
+/* Blog articles only: pure-white body text (links keep their --sage colour
+   via the global `a` rule). Scoped to .blog-prose so the privacy page, which
+   also uses .prose, is unaffected. */
+.blog-prose p, .blog-prose li, .blog-prose strong { color: #ffffff; }
 
 /* ── Forms ───────────────────────────────────────────────── */
 .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
