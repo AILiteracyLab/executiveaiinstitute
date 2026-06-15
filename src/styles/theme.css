@@ -82,6 +82,10 @@ a:hover { color: var(--cream); }
 img { max-width: 100%; display: block; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+/* Mobile: 10px page side-gutter everywhere. Everything horizontal uses --gutter
+   (containers, nav, prose, forms), so overriding it here pulls all content to
+   10px from the screen edges on phones. */
+@media (max-width: 768px) { :root { --gutter: 10px; } }
 .section { padding: clamp(72px, 10vw, 140px) 0; position: relative; }
 
 /* Kicker — the BBE uppercase label, emerald */
