@@ -40,7 +40,7 @@
   // ─── SVG Icons ───
   var ICONS = {
     accessibility: '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><circle cx="12" cy="3.6" r="2.1"/><path d="M21 8.4c0 .66-.55 1.16-1.27 1.07L15 8.9v3.1l2.18 7.2c.2.7-.19 1.42-.9 1.62-.7.2-1.42-.19-1.62-.9L12.85 14h-1.7l-1.81 5.92c-.2.71-.92 1.1-1.62.9-.71-.2-1.1-.92-.9-1.62L9 12V8.9l-4.73.57C3.55 9.56 3 9.06 3 8.4c0-.6.42-1.05 1-1.13L12 6.1l8 1.17c.58.08 1 .53 1 1.13z"/></svg>',
-    chat: '<img src="https://25517737.fs1.hubspotusercontent-eu1.net/hubfs/25517737/axs-widget/chatbot-icon.png" alt="Chat" style="width:36px;height:36px;">',
+    chat: '<img src="/axs/chatbot-icon.png" alt="Chat" style="width:36px;height:36px;">',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>',
     reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12a10 10 0 0117.07-7.07M22 12a10 10 0 01-17.07 7.07"/><path d="M2 4v8h8M22 20v-8h-8"/></svg>',
     search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>',
