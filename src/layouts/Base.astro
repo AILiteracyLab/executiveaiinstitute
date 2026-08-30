@@ -24,6 +24,16 @@ const nav = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics 4 — direct, gated on the analytics_optout cookie.
+       This site had NO analytics of any kind before 31 Aug 2026; it was the
+       only one of the seven with neither a container nor a property. -->
+  <script is:inline>(function(w,d,i){if(d.cookie.indexOf('analytics_optout=1')>-1)return;
+  w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}w.gtag=g;
+  g('js',new Date());g('config',i,{anonymize_ip:true});
+  var f=d.getElementsByTagName('script')[0],j=d.createElement('script');j.async=true;
+  j.src='https://www.googletagmanager.com/gtag/js?id='+i;f.parentNode.insertBefore(j,f);
+  })(window,document,'G-VJ4Z6HRE8H');</script>
+  <!-- End Google Analytics 4 -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
