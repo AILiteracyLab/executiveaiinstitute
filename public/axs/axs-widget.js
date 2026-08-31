@@ -305,7 +305,7 @@
     var langSelect = el('select', {
       className: 'axs-language__select',
       'aria-label': 'Translate page to another language',
-      onChange: function() { translatePage(this.value); }
+      onChange: function() { var v = this.value; ensureGoogleTranslate(function () { translatePage(v); }); }
     });
     var langs = [
       { value: '', label: '\uD83C\uDDEC\uD83C\uDDE7 English (Original)' },
@@ -329,8 +329,11 @@
     langWrap.appendChild(langSelect);
     viewAccess.appendChild(langWrap);
 
-    // Load Google Translate (hidden, we use our own UI)
-    loadGoogleTranslate();
+    // Google Translate is NOT loaded here. It used to be, which meant every
+    // visitor to every page made nine requests to translate.google.com,
+    // gstatic and translate-pa.googleapis.com — including an API key — before
+    // touching anything, purely so a language dropdown they never opened would
+    // be ready. It now loads on first use of the selector.
 
     // No results message
     noResults = el('div', { className: 'axs-no-results', textContent: 'No features found' });
@@ -1978,6 +1981,33 @@
     s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     s.async = true;
     document.body.appendChild(s);
+  }
+
+  /* Loads Google Translate on first use and calls back once its hidden combo
+     box exists. Polls rather than trusting the init callback alone, because the
+     element is created by that callback and is not present the instant it runs.
+     Gives up after ~6s and calls back anyway, so a blocked or slow Google
+     leaves the page working rather than hanging on a dropdown. */
+  var gtState = 'idle';
+  var gtWaiting = [];
+
+  function ensureGoogleTranslate(cb) {
+    if (gtState === 'ready') { cb(); return; }
+    gtWaiting.push(cb);
+    if (gtState === 'loading') return;
+    gtState = 'loading';
+    loadGoogleTranslate();
+    var waited = 0;
+    var iv = setInterval(function () {
+      waited += 150;
+      var ready = !!document.querySelector('#google_translate_element select.goog-te-combo');
+      if (ready || waited >= 6000) {
+        clearInterval(iv);
+        gtState = ready ? 'ready' : 'idle';
+        var q = gtWaiting.slice(); gtWaiting = [];
+        q.forEach(function (fn) { try { fn(); } catch (e) {} });
+      }
+    }, 150);
   }
 
   function triggerGoogleTranslate(langCode) {
