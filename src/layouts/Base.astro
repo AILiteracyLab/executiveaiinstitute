@@ -8,7 +8,23 @@ const {
   hideSubscribe = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const ogImage = new URL('/og.png', Astro.site).href;
+
+// Share card. Every page and every insight has its own, rendered into
+// public/og by tools/build-og-cards.py, which derives the SAME key from the
+// same path -- keep ogKey and that script's key_for() identical.
+//
+// The existence check is what makes this safe: a page added since the last
+// render falls back to the shared /og.png rather than pointing at a 404,
+// which is worse than a generic card. It runs at build time in Node.
+const ogKey = (Astro.url.pathname.replace(/^\/|\/$/g, '') || 'home')
+  .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+let ogPath = '/og.png';
+try {
+  const { existsSync } = await import('node:fs');
+  if (existsSync(`./public/og/${ogKey}.png`)) ogPath = `/og/${ogKey}.png`;
+} catch {}
+const ogImage = new URL(ogPath, Astro.site).href;
+const ogImageAlt = `Executive AI Institute: ${title.replace(/\s*\|\s*Executive AI Institute\s*$/i, '')}`;
 const path = Astro.url.pathname;
 const current = (href) => (href === '/' ? path === '/' : path.startsWith(href)) ? 'page' : undefined;
 const nav = [
@@ -50,10 +66,12 @@ const nav = [
   <meta property="og:image" content={ogImage} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={ogImageAlt} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={ogImageAlt} />
   <script is:inline>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
