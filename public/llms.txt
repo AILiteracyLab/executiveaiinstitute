@@ -1,0 +1,24 @@
+# Executive AI Institute
+
+> People-first AI strategy for senior leaders: leadership psychology alongside hands-on technical mastery.
+
+Founded by Jonscott Turco and Jamie Bykov-Brett. Canonical host is www.executiveaiinstitute.com.
+
+## Start here
+- [Home](https://www.executiveaiinstitute.com/)
+- [About](https://www.executiveaiinstitute.com/about/)
+- [Programs](https://www.executiveaiinstitute.com/programs/): from a one-hour primer to ongoing work.
+- [Coaching](https://www.executiveaiinstitute.com/coaching/)
+
+## Writing and research
+- [Insights](https://www.executiveaiinstitute.com/insights/): essays on AI leadership and organisational change. Around 100 articles; the sitemap lists them all.
+- [Reports](https://www.executiveaiinstitute.com/reports/): enterprise AI briefings.
+- [AI leadership roadmap](https://www.executiveaiinstitute.com/roadmap/): a free 12-question diagnostic.
+
+## Practical
+- [Events](https://www.executiveaiinstitute.com/events/)
+- [FAQ](https://www.executiveaiinstitute.com/faq/)
+- [Contact](https://www.executiveaiinstitute.com/contact/)
+
+## Legal
+- [Privacy](https://www.executiveaiinstitute.com/privacy/)
