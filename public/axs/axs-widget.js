@@ -2057,6 +2057,12 @@
   function init() {
     buildWidget();
     restorePrefs();
+    /* Restore an active translation. See tools/gt-restore.py: the combo-box
+       path never fires, so the cookie set before a reload is what actually
+       translates -- and it needs Google Translate on the page to act on it.
+       No cookie means no request to Google at all, which is the point. */
+    var __axsRestoreTranslate = /(^|;\s*)googtrans=\/[^/;]*\/[A-Za-z-]+/;
+    if (__axsRestoreTranslate.test(document.cookie)) loadGoogleTranslate();
     document.addEventListener('keydown', handleKeydown);
   }
 
