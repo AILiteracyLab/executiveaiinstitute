@@ -23,10 +23,10 @@
   --axs-primary-glow: rgba(6, 95, 70, 0.3);
   --axs-accent: #34D399;
   --axs-text: #ffffff;
-  --axs-text-muted: rgba(255, 255, 255, 0.5);
-  --axs-text-dim: rgba(255, 255, 255, 0.35);
-  --axs-text-faint: rgba(255, 255, 255, 0.25);
-  --axs-text-ghost: rgba(255, 255, 255, 0.2);
+  --axs-text-muted: rgba(255, 255, 255, 0.7);
+  --axs-text-dim: rgba(255, 255, 255, 0.62);
+  --axs-text-faint: rgba(255, 255, 255, 0.54);
+  --axs-text-ghost: rgba(255, 255, 255, 0.47);
   --axs-border: rgba(255, 255, 255, 0.06);
   --axs-border-subtle: rgba(255, 255, 255, 0.04);
   --axs-radius: 10px;

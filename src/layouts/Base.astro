@@ -76,7 +76,7 @@ const nav = [
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/axs/axs-widget.css?v=20260831b" />
+  <link rel="stylesheet" href="/axs/axs-widget.css?v=20260908c" />
   <style is:inline>
     /* EAII theming for the AXS accessibility launcher: black person icon on a
        bright green box (9:1 contrast), bottom-right corner. The Treize chat
@@ -144,6 +144,12 @@ const nav = [
   </footer>
 
   <script src="/axs/axs-widget.js?v=20260831b" defer is:inline></script>
+  <!-- The GA4 block above is gated on an analytics_optout cookie, and until
+       8 Sep 2026 nothing on this site could write one: the opt-out widget was
+       never shipped here, so the gate read a cookie with no control behind it.
+       That fails the second condition of the DUAA first-party analytics
+       exemption, which is information AND a simple free way to object. -->
+  <script src="/axs/analytics-optout.js?v=20260908c" defer is:inline></script>
   <script>
     // Mobile nav
     const t = document.querySelector('.nav-toggle');
