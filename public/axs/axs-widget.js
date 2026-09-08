@@ -408,14 +408,14 @@
     var footerLinks = el('div', { className: 'axs-panel__footer-links' });
     footerLinks.appendChild(el('a', {
       className: 'axs-panel__footer-link',
-      href: 'https://bykovbrett.net/policy#accessibility-statement',
+      href: (window.AXS_ACCESSIBILITY_URL || 'https://bykovbrett.net/policy#accessibility-statement'),
       target: '_blank',
       rel: 'noopener noreferrer',
       textContent: 'Accessibility Statement'
     }));
     footerLinks.appendChild(el('a', {
       className: 'axs-panel__footer-link',
-      href: 'https://bykovbrett.net/policy#privacy-policy',
+      href: (window.AXS_PRIVACY_URL || 'https://bykovbrett.net/policy#privacy-policy'),
       target: '_blank',
       rel: 'noopener noreferrer',
       textContent: 'Privacy'
